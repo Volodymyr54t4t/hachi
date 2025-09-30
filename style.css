@@ -242,6 +242,22 @@ body {
   margin-bottom: 10px;
 }
 
+/* Added styling for infinity symbol */
+.stat-number.infinity {
+  font-size: 72px;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
 .stat-label {
   font-size: 18px;
   color: var(--gray);
@@ -523,6 +539,10 @@ body {
 
   .stat-number {
     font-size: 48px;
+  }
+
+  .stat-number.infinity {
+    font-size: 56px;
   }
 
   .manifesto-grid {
