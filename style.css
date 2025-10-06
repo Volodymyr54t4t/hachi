@@ -359,8 +359,8 @@ body {
 
 .manifesto-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 30px;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 25px;
   margin-top: 60px;
 }
 
@@ -370,7 +370,7 @@ body {
   -webkit-backdrop-filter: blur(20px);
   border: 2px solid var(--glass-border);
   border-radius: 30px;
-  padding: 40px;
+  padding: 30px;
   transition: all 0.4s ease;
   position: relative;
   overflow: hidden;
@@ -403,14 +403,14 @@ body {
 }
 
 .manifesto-icon {
-  font-size: 56px;
-  margin-bottom: 20px;
+  font-size: 44px;
+  margin-bottom: 15px;
   filter: drop-shadow(0 0 10px rgba(255, 77, 109, 0.5));
 }
 
 .manifesto-card h3 {
-  font-size: 24px;
-  margin-bottom: 15px;
+  font-size: 18px;
+  margin-bottom: 12px;
   color: var(--light);
   position: relative;
   z-index: 1;
@@ -418,9 +418,10 @@ body {
 
 .manifesto-card p {
   color: var(--gray);
-  line-height: 1.8;
+  line-height: 1.6;
   position: relative;
   z-index: 1;
+  font-size: 14px;
 }
 
 /* Team Section */
@@ -795,6 +796,11 @@ body {
 
   .section-title {
     font-size: 40px;
+  }
+
+  .manifesto-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
   }
 
   .team-grid {
