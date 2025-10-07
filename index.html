@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="ХАЧІ - Революція починається з нас. Студентська рада ліцею.">
     <title>ХАЧІ - Революція починається з нас</title>
     <link rel="stylesheet" href="style.css">
 </head>
@@ -11,17 +12,22 @@
 <body>
     <canvas id="particles-canvas"></canvas>
 
-    <nav class="navbar">
+    <nav class="navbar" id="navbar">
         <div class="container">
             <div class="nav-brand">ХАЧІ</div>
-            <ul class="nav-menu">
+            <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-menu" id="navMenu">
                 <li><a href="#team">Команда</a></li>
                 <li><a href="#manifesto">Маніфест</a></li>
             </ul>
         </div>
     </nav>
 
-    <section class="hero">
+    <section class="hero" id="home">
         <div class="container">
             <div class="hero-content">
                 <div class="hero-text">
@@ -39,9 +45,17 @@
                         <a href="#manifesto" class="btn btn-secondary">Маніфест</a>
                     </div>
                 </div>
-                <div class="hero-image">
+
+                <div class="hero-photo">
                     <img src="./images/General.jpg"
-                        alt="ХАЧІ Team" class="main-hero-img">
+                        alt="ХАЧІ Team" class="main-hero-img" loading="lazy">
+                </div>
+
+                <div class="hero-video">
+                    <video class="tiktok-video" autoplay loop muted playsinline>
+                        <source src="./video/Gif_1.mp4" type="video/mp4">
+                        Ваш браузер не підтримує відео.
+                    </video>
                 </div>
             </div>
         </div>
@@ -104,7 +118,7 @@
             <div class="team-grid">
                 <div class="team-card">
                     <div class="team-image">
-                        <img src="./images/Григоришина.jpg" alt="Анна Григоришина">
+                        <img src="./images/Григоришина.jpg" alt="Анна Григоришина" loading="lazy">
                     </div>
                     <div class="team-info">
                         <h3>ГРИГОРИШИНА Анна</h3>
@@ -116,7 +130,7 @@
 
                 <div class="team-card">
                     <div class="team-image">
-                        <img src="./images/Левченко.jpg" alt="Софія Левченко">
+                        <img src="./images/Левченко.jpg" alt="Софія Левченко" loading="lazy">
                     </div>
                     <div class="team-info">
                         <h3>ЛЕВЧЕНКО Софія</h3>
@@ -128,7 +142,7 @@
 
                 <div class="team-card">
                     <div class="team-image">
-                        <img src="./images/Сорочинський.jpg" alt="Олексій Сорочинський">
+                        <img src="./images/Сорочинський.jpg" alt="Олексій Сорочинський" loading="lazy">
                     </div>
                     <div class="team-info">
                         <h3>СОРОЧИНСЬКИЙ Олексій</h3>
@@ -140,7 +154,7 @@
 
                 <div class="team-card">
                     <div class="team-image">
-                        <img src="./images/Вдовіна.jpg" alt="Єлизавета Вдовіна">
+                        <img src="./images/Вдовіна.jpg" alt="Єлизавета Вдовіна" loading="lazy">
                     </div>
                     <div class="team-info">
                         <h3>ВДОВІНА Єлизавета</h3>
@@ -152,7 +166,7 @@
 
                 <div class="team-card">
                     <div class="team-image">
-                        <img src="./images/Ватага.jpg" alt="Ксенія Ватага">
+                        <img src="./images/Ватага.jpg" alt="Ксенія Ватага" loading="lazy">
                     </div>
                     <div class="team-info">
                         <h3>ВАТАГА Ксенія</h3>
@@ -164,7 +178,7 @@
 
                 <div class="team-card">
                     <div class="team-image">
-                        <img src="./images/Чорна.М.jpg" alt="Марія Чорна">
+                        <img src="./images/Чорна.М.jpg" alt="Марія Чорна" loading="lazy">
                     </div>
                     <div class="team-info">
                         <h3>ЧОРНА Марія</h3>
@@ -176,7 +190,7 @@
 
                 <div class="team-card">
                     <div class="team-image">
-                        <img src="./images/Бовсуновський.jpg" alt="Ярослав Бовсуновський">
+                        <img src="./images/Бовсуновський.jpg" alt="Ярослав Бовсуновський" loading="lazy">
                     </div>
                     <div class="team-info">
                         <h3>БОВСУНОВСЬКИЙ Ярослав</h3>
@@ -188,7 +202,7 @@
 
                 <div class="team-card">
                     <div class="team-image">
-                        <img src="./images/Цимбалюк.jpg" alt="Олександра Цимбалюк">
+                        <img src="./images/Цимбалюк.jpg" alt="Олександра Цимбалюк" loading="lazy">
                     </div>
                     <div class="team-info">
                         <h3>ЦИМБАЛЮК Олександра</h3>
@@ -200,7 +214,7 @@
 
                 <div class="team-card">
                     <div class="team-image">
-                        <img src="./images/Крайник.jpg" alt="Андрій Крайник">
+                        <img src="./images/Крайник.jpg" alt="Андрій Крайник" loading="lazy">
                     </div>
                     <div class="team-info">
                         <h3>КРАЙНИК Андрій</h3>

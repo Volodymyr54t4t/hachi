@@ -167,86 +167,90 @@ const photoPreview = document.getElementById("photoPreview")
 const previewImage = document.getElementById("previewImage")
 const removePhotoBtn = document.getElementById("removePhoto")
 
-photoUploadArea.addEventListener("click", (e) => {
-    if (e.target !== removePhotoBtn && !e.target.closest(".remove-photo")) {
-        photoInput.click()
+if (photoUploadArea) {
+    photoUploadArea.addEventListener("click", (e) => {
+        if (e.target !== removePhotoBtn && !e.target.closest(".remove-photo")) {
+            photoInput.click()
+        }
+    })
+
+    photoInput.addEventListener("change", (e) => {
+        handleFile(e.target.files[0])
+    })
+
+    photoUploadArea.addEventListener("dragover", (e) => {
+        e.preventDefault()
+        photoUploadArea.classList.add("dragover")
+    })
+
+    photoUploadArea.addEventListener("dragleave", () => {
+        photoUploadArea.classList.remove("dragover")
+    })
+
+    photoUploadArea.addEventListener("drop", (e) => {
+        e.preventDefault()
+        photoUploadArea.classList.remove("dragover")
+
+        const file = e.dataTransfer.files[0]
+        if (file && file.type.startsWith("image/")) {
+            handleFile(file)
+        }
+    })
+
+    function handleFile(file) {
+        if (!file || !file.type.startsWith("image/")) {
+            alert("Будь ласка, виберіть файл зображення")
+            return
+        }
+
+        if (file.size > 5 * 1024 * 1024) {
+            alert("Файл занадто великий. Максимальний розмір: 5MB")
+            return
+        }
+
+        const reader = new FileReader()
+        reader.onload = (e) => {
+            previewImage.src = e.target.result
+            uploadPlaceholder.style.display = "none"
+            photoPreview.style.display = "block"
+        }
+        reader.readAsDataURL(file)
     }
-})
 
-photoInput.addEventListener("change", (e) => {
-    handleFile(e.target.files[0])
-})
-
-photoUploadArea.addEventListener("dragover", (e) => {
-    e.preventDefault()
-    photoUploadArea.classList.add("dragover")
-})
-
-photoUploadArea.addEventListener("dragleave", () => {
-    photoUploadArea.classList.remove("dragover")
-})
-
-photoUploadArea.addEventListener("drop", (e) => {
-    e.preventDefault()
-    photoUploadArea.classList.remove("dragover")
-
-    const file = e.dataTransfer.files[0]
-    if (file && file.type.startsWith("image/")) {
-        handleFile(file)
-    }
-})
-
-function handleFile(file) {
-    if (!file || !file.type.startsWith("image/")) {
-        alert("Будь ласка, виберіть файл зображення")
-        return
-    }
-
-    if (file.size > 5 * 1024 * 1024) {
-        alert("Файл занадто великий. Максимальний розмір: 5MB")
-        return
-    }
-
-    const reader = new FileReader()
-    reader.onload = (e) => {
-        previewImage.src = e.target.result
-        uploadPlaceholder.style.display = "none"
-        photoPreview.style.display = "block"
-    }
-    reader.readAsDataURL(file)
-}
-
-removePhotoBtn.addEventListener("click", (e) => {
-    e.stopPropagation()
-    photoInput.value = ""
-    previewImage.src = ""
-    uploadPlaceholder.style.display = "flex"
-    photoPreview.style.display = "none"
-})
-
-const joinForm = document.getElementById("joinForm")
-joinForm.addEventListener("submit", (e) => {
-    e.preventDefault()
-
-    const btnText = document.querySelector(".btn-text")
-    const btnLoader = document.querySelector(".btn-loader")
-    const submitBtn = document.querySelector(".btn-submit")
-
-    btnText.style.display = "none"
-    btnLoader.style.display = "inline"
-    submitBtn.disabled = true
-
-    setTimeout(() => {
-        alert("Дякуємо за заявку! Ми зв'яжемося з тобою найближчим часом 🚀")
-
-        joinForm.reset()
+    removePhotoBtn.addEventListener("click", (e) => {
+        e.stopPropagation()
         photoInput.value = ""
         previewImage.src = ""
         uploadPlaceholder.style.display = "flex"
         photoPreview.style.display = "none"
+    })
+}
 
-        btnText.style.display = "inline"
-        btnLoader.style.display = "none"
-        submitBtn.disabled = false
-    }, 2000)
-})
+const joinForm = document.getElementById("joinForm")
+if (joinForm) {
+    joinForm.addEventListener("submit", (e) => {
+        e.preventDefault()
+
+        const btnText = document.querySelector(".btn-text")
+        const btnLoader = document.querySelector(".btn-loader")
+        const submitBtn = document.querySelector(".btn-submit")
+
+        btnText.style.display = "none"
+        btnLoader.style.display = "inline"
+        submitBtn.disabled = true
+
+        setTimeout(() => {
+            alert("Дякуємо за заявку! Ми зв'яжемося з тобою найближчим часом 🚀")
+
+            joinForm.reset()
+            photoInput.value = ""
+            previewImage.src = ""
+            uploadPlaceholder.style.display = "flex"
+            photoPreview.style.display = "none"
+
+            btnText.style.display = "inline"
+            btnLoader.style.display = "none"
+            submitBtn.disabled = false
+        }, 2000)
+    })
+}
