@@ -17,8 +17,7 @@
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-    "Helvetica Neue", Arial, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   background: var(--dark);
   color: var(--light);
   overflow-x: hidden;
@@ -75,12 +74,7 @@ body {
 .nav-brand {
   font-size: 32px;
   font-weight: 900;
-  background: linear-gradient(
-    135deg,
-    var(--primary),
-    var(--secondary),
-    var(--accent)
-  );
+  background: linear-gradient(135deg, var(--primary), var(--secondary), var(--accent));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -192,12 +186,7 @@ body {
 }
 
 .highlight {
-  background: linear-gradient(
-    135deg,
-    var(--primary),
-    var(--secondary),
-    var(--accent)
-  );
+  background: linear-gradient(135deg, var(--primary), var(--secondary), var(--accent));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -355,32 +344,12 @@ body {
 .stat-number {
   font-size: 64px;
   font-weight: 900;
-  background: linear-gradient(
-    135deg,
-    var(--primary),
-    var(--secondary),
-    var(--accent)
-  );
+  background: linear-gradient(135deg, var(--primary), var(--secondary), var(--accent));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
   margin-bottom: 10px;
   line-height: 1;
-}
-
-.stat-number.infinity {
-  font-size: 72px;
-  animation: pulse 2s ease-in-out infinite;
-}
-
-@keyframes pulse {
-  0%,
-  100% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.1);
-  }
 }
 
 .stat-label {
@@ -439,11 +408,7 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(
-    135deg,
-    rgba(255, 77, 109, 0.15),
-    rgba(0, 217, 255, 0.1)
-  );
+  background: linear-gradient(135deg, rgba(255, 77, 109, 0.15), rgba(0, 217, 255, 0.1));
   opacity: 0;
   transition: opacity 0.4s ease;
   z-index: 0;
@@ -626,11 +591,7 @@ body {
 .plans-quote {
   margin-top: 60px;
   padding: 40px;
-  background: linear-gradient(
-    135deg,
-    rgba(255, 77, 109, 0.15),
-    rgba(0, 217, 255, 0.1)
-  );
+  background: linear-gradient(135deg, rgba(255, 77, 109, 0.15), rgba(0, 217, 255, 0.1));
   border: 2px solid var(--primary);
   border-radius: 30px;
   text-align: center;
@@ -645,6 +606,60 @@ body {
   line-height: 1.6;
   margin: 0;
   text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Videos Section */
+.videos-section {
+  padding: 100px 0;
+  background: var(--dark);
+}
+
+.video-single-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 60px;
+}
+
+.video-card-single {
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 2px solid var(--glass-border);
+  border-radius: 30px;
+  overflow: hidden;
+  transition: all 0.4s ease;
+  max-width: 900px;
+  width: 100%;
+  box-shadow: 0 20px 60px rgba(255, 77, 109, 0.3);
+}
+
+.video-card-single:hover {
+  transform: translateY(-10px);
+  border-color: var(--primary);
+  box-shadow: 0 25px 70px rgba(255, 77, 109, 0.5);
+}
+
+.video-container-single {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: var(--darker);
+  position: relative;
+  overflow: hidden;
+}
+
+.video-container-single video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.videos-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  margin-top: 60px;
 }
 
 /* Team Section */
@@ -762,12 +777,7 @@ body {
 
 .footer-brand h3 {
   font-size: 32px;
-  background: linear-gradient(
-    135deg,
-    var(--primary),
-    var(--secondary),
-    var(--accent)
-  );
+  background: linear-gradient(135deg, var(--primary), var(--secondary), var(--accent));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -947,6 +957,15 @@ html {
   .plans-quote p {
     font-size: 20px;
   }
+
+  .videos-section {
+    padding: 120px 0;
+  }
+
+  .videos-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 35px;
+  }
 }
 
 @media (max-width: 1200px) {
@@ -996,6 +1015,15 @@ html {
 
   .plans-quote p {
     font-size: 19px;
+  }
+
+  .videos-section {
+    padding: 100px 0;
+  }
+
+  .videos-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
   }
 }
 
@@ -1106,66 +1134,34 @@ html {
     max-width: 700px;
   }
 
-  /* Team */
-  .team {
-    padding: 100px 0;
+  /* Videos Section */
+  .videos-section {
+    padding: 90px 0;
   }
 
-  .team-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 30px;
+  .video-single-container {
+    margin-top: 50px;
   }
 
-  .team-image {
-    height: 360px;
+  .video-card-single {
+    max-width: 700px;
   }
 
-  /* Plans */
-  .plans {
-    padding: 100px 0;
-  }
-
-  .plans-grid {
+  .videos-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 25px;
   }
 
-  .plan-card {
-    padding: 28px;
+  .video-info {
+    padding: 22px;
   }
 
-  .plan-photo {
-    width: 65px;
-    height: 65px;
-  }
-
-  .plan-header h3 {
+  .video-info h3 {
     font-size: 19px;
   }
 
-  .plan-role {
+  .video-info p {
     font-size: 14px;
-  }
-
-  .plan-list li {
-    font-size: 14px;
-  }
-
-  .plan-sublist li {
-    font-size: 13px;
-  }
-
-  .plans-quote {
-    padding: 35px;
-  }
-
-  .plans-quote p {
-    font-size: 19px;
-  }
-
-  /* Presentation */
-  .presentation-iframe {
-    height: 500px;
   }
 }
 
@@ -1254,18 +1250,13 @@ html {
     font-size: 54px;
   }
 
-  .stat-number.infinity {
-    font-size: 62px;
-  }
-
-  /* Manifesto and Team grids to 1 column on mobile */
   .manifesto-grid {
     grid-template-columns: 1fr;
     gap: 20px;
   }
 
   .team-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr);
     gap: 25px;
   }
 
@@ -1306,18 +1297,95 @@ html {
     display: block;
   }
 
-  /* Plans section responsive styles for 640px */
-  .plans {
+  /* Videos Section */
+  .videos-section {
     padding: 80px 0;
+  }
+
+  .video-single-container {
+    margin-top: 40px;
+  }
+
+  .video-card-single {
+    max-width: 100%;
+    border-radius: 25px;
+  }
+
+  .video-container-single {
+    aspect-ratio: 16 / 9;
+  }
+
+  .videos-grid {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+}
+
+@media (max-width: 640px) {
+  .hero-title {
+    font-size: 38px;
+  }
+
+  .hero-description {
+    font-size: 16px;
+  }
+
+  .hero-photo {
+    max-width: 320px;
+  }
+
+  .hero-video {
+    max-width: 240px;
+  }
+
+  .section-title {
+    font-size: 36px;
+  }
+
+  .section-subtitle {
+    font-size: 17px;
+  }
+
+  .stat-number {
+    font-size: 50px;
+  }
+
+  .stat-label {
+    font-size: 16px;
+  }
+
+  .manifesto {
+    padding: 90px 0;
+  }
+
+  .manifesto-card {
+    padding: 28px;
+  }
+
+  .team {
+    padding: 90px 0;
+  }
+
+  .team-grid {
+    grid-template-columns: 1fr;
+    gap: 22px;
+  }
+
+  .team-image {
+    height: 350px;
+  }
+
+  .plans {
+    padding: 90px 0;
   }
 
   .plans-grid {
     grid-template-columns: 1fr;
-    gap: 20px;
+    gap: 22px;
   }
 
   .plan-card {
-    padding: 25px;
+    padding: 28px;
   }
 
   .plan-photo {
@@ -1335,19 +1403,36 @@ html {
 
   .plan-list li {
     font-size: 14px;
+    padding-left: 22px;
+  }
+
+  .plan-list li::before {
+    font-size: 14px;
   }
 
   .plan-sublist li {
     font-size: 13px;
+    padding-left: 18px;
   }
 
   .plans-quote {
     padding: 30px;
-    margin-top: 40px;
   }
 
   .plans-quote p {
     font-size: 18px;
+  }
+
+  .campaign-bus {
+    padding: 70px 0;
+  }
+
+  .videos-section {
+    padding: 75px 0;
+  }
+
+  .video-single-container {
+    margin-top: 38px;
   }
 }
 
@@ -1393,25 +1478,8 @@ html {
     font-size: 30px;
   }
 
-  .section-subtitle {
-    font-size: 16px;
-  }
-
-  .stats {
-    padding: 60px 0;
-  }
-
-  .stats-grid {
-    grid-template-columns: 1fr;
-    gap: 20px;
-  }
-
   .stat-number {
     font-size: 48px;
-  }
-
-  .stat-number.infinity {
-    font-size: 56px;
   }
 
   .manifesto {
@@ -1444,6 +1512,54 @@ html {
 
   .team-info h3 {
     font-size: 19px;
+  }
+
+  .plans {
+    padding: 80px 0;
+  }
+
+  .plans-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .plan-card {
+    padding: 25px;
+  }
+
+  .plan-photo {
+    width: 55px;
+    height: 55px;
+  }
+
+  .plan-header h3 {
+    font-size: 17px;
+  }
+
+  .plan-role {
+    font-size: 13px;
+  }
+
+  .plan-list li {
+    font-size: 13px;
+    padding-left: 22px;
+  }
+
+  .plan-list li::before {
+    font-size: 14px;
+  }
+
+  .plan-sublist li {
+    font-size: 12px;
+    padding-left: 18px;
+  }
+
+  .plans-quote {
+    padding: 25px;
+  }
+
+  .plans-quote p {
+    font-size: 16px;
   }
 
   .footer {
@@ -1484,61 +1600,37 @@ html {
     display: block;
   }
 
-  /* Plans section responsive styles for 480px */
-  .plans {
+  /* Videos Section */
+  .videos-section {
     padding: 70px 0;
   }
 
-  .plans-grid {
-    grid-template-columns: 1fr;
-    gap: 18px;
-  }
-
-  .plan-card {
-    padding: 22px;
-  }
-
-  .plan-photo {
-    width: 55px;
-    height: 55px;
-  }
-
-  .plan-header {
-    margin-bottom: 20px;
-    padding-bottom: 18px;
-  }
-
-  .plan-header h3 {
-    font-size: 17px;
-  }
-
-  .plan-role {
-    font-size: 13px;
-  }
-
-  .plan-list li {
-    font-size: 13px;
-    padding-left: 22px;
-    margin-bottom: 10px;
-  }
-
-  .plan-list li strong {
-    font-size: 14px;
-    margin-bottom: 6px;
-  }
-
-  .plan-sublist li {
-    font-size: 12px;
-    padding-left: 18px;
-    margin-bottom: 6px;
-  }
-
-  .plans-quote {
-    padding: 25px;
+  .video-single-container {
     margin-top: 35px;
   }
 
-  .plans-quote p {
-    font-size: 17px;
+  .video-card-single {
+    border-radius: 20px;
+  }
+
+  .video-container-single {
+    aspect-ratio: 16 / 9;
+  }
+
+  .video-info {
+    padding: 20px;
+  }
+
+  .video-info h3 {
+    font-size: 18px;
+  }
+
+  .video-info p {
+    font-size: 14px;
+  }
+
+  .videos-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
   }
 }
