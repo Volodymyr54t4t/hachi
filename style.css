@@ -484,6 +484,170 @@ body {
   font-size: 16px;
 }
 
+/* Plans Section */
+.plans {
+  padding: 120px 0;
+  background: var(--dark);
+}
+
+.plans-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  margin-top: 60px;
+}
+
+.plan-card {
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 2px solid var(--glass-border);
+  border-radius: 30px;
+  padding: 35px;
+  transition: all 0.4s ease;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.plan-card:hover {
+  transform: translateY(-10px);
+  border-color: var(--primary);
+  box-shadow: 0 20px 60px rgba(255, 77, 109, 0.4);
+}
+
+.plan-header {
+  margin-bottom: 25px;
+  padding-bottom: 20px;
+  border-bottom: 2px solid var(--glass-border);
+}
+
+.plan-profile {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.plan-photo {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--primary);
+  box-shadow: 0 5px 20px rgba(255, 77, 109, 0.4);
+  flex-shrink: 0;
+}
+
+.plan-name-role {
+  flex: 1;
+  min-width: 0;
+}
+
+.plan-header h3 {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--light);
+  margin-bottom: 8px;
+  line-height: 1.3;
+}
+
+.plan-role {
+  color: var(--primary);
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 1.4;
+}
+
+.plan-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  flex: 1;
+}
+
+.plan-list li {
+  color: var(--gray);
+  font-size: 15px;
+  line-height: 1.7;
+  margin-bottom: 12px;
+  padding-left: 25px;
+  position: relative;
+}
+
+.plan-list li::before {
+  content: "→";
+  position: absolute;
+  left: 0;
+  color: var(--primary);
+  font-weight: 700;
+  font-size: 16px;
+}
+
+.plan-list li:last-child {
+  margin-bottom: 0;
+}
+
+/* Adding styles for nested sublists in plan cards */
+.plan-list li strong {
+  color: var(--light);
+  font-weight: 700;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.plan-sublist {
+  list-style: none;
+  padding: 0;
+  margin: 8px 0 0 0;
+}
+
+.plan-sublist li {
+  color: var(--gray);
+  font-size: 14px;
+  line-height: 1.6;
+  margin-bottom: 8px;
+  padding-left: 20px;
+  position: relative;
+}
+
+.plan-sublist li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.plan-sublist li:last-child {
+  margin-bottom: 0;
+}
+/* </CHANGE> */
+
+.plans-quote {
+  margin-top: 60px;
+  padding: 40px;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 77, 109, 0.15),
+    rgba(0, 217, 255, 0.1)
+  );
+  border: 2px solid var(--primary);
+  border-radius: 30px;
+  text-align: center;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+.plans-quote p {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--light);
+  line-height: 1.6;
+  margin: 0;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
 /* Team Section */
 .team {
   padding: 120px 0;
@@ -695,6 +859,34 @@ html {
   line-height: 1.6;
 }
 
+/* Campaign Bus Section */
+.campaign-bus {
+  padding: 100px 0;
+  background: rgba(5, 8, 20, 0.3);
+}
+
+.campaign-bus-container {
+  margin-top: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.campaign-bus-image {
+  width: 100%;
+  max-width: 1000px;
+  height: auto;
+  border-radius: 30px;
+  box-shadow: 0 30px 80px rgba(255, 77, 109, 0.5);
+  border: 3px solid var(--glass-border);
+  transition: all 0.4s ease;
+}
+
+.campaign-bus-image:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 40px 100px rgba(255, 77, 109, 0.7);
+}
+
 /* Responsive Design */
 @media (min-width: 1400px) {
   .container {
@@ -734,6 +926,28 @@ html {
   .presentation-iframe {
     height: 600px;
   }
+
+  .campaign-bus-image {
+    max-width: 1100px;
+  }
+
+  .plans-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+  }
+
+  .plan-card {
+    padding: 30px;
+  }
+
+  .plan-photo {
+    width: 75px;
+    height: 75px;
+  }
+
+  .plans-quote p {
+    font-size: 20px;
+  }
 }
 
 @media (max-width: 1200px) {
@@ -762,10 +976,31 @@ html {
   .presentation-iframe {
     height: 550px;
   }
+
+  .campaign-bus-image {
+    max-width: 900px;
+  }
+
+  .plans-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+  }
+
+  .plan-card {
+    padding: 28px;
+  }
+
+  .plan-photo {
+    width: 70px;
+    height: 70px;
+  }
+
+  .plans-quote p {
+    font-size: 19px;
+  }
 }
 
 @media (max-width: 968px) {
-  /* Mobile menu toggle appears and navigation becomes vertical */
   .mobile-menu-toggle {
     display: flex;
   }
@@ -809,7 +1044,6 @@ html {
     width: 100%;
   }
 
-  /* Hero section stacks vertically on tablet */
   .hero-content {
     flex-direction: column;
     text-align: center;
@@ -855,13 +1089,11 @@ html {
     font-size: 62px;
   }
 
-  /* Manifesto cards in 2 columns on tablet */
   .manifesto-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 20px;
   }
 
-  /* Team cards in 2 columns on tablet */
   .team-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 25px;
@@ -884,47 +1116,43 @@ html {
   .presentation-iframe {
     height: 500px;
   }
-}
-
-@media (max-width: 768px) {
-  .hero-title {
-    font-size: 40px;
-  }
-
-  .hero-description {
-    font-size: 16px;
-  }
-
-  .hero-photo {
-    max-width: 340px;
-  }
-
-  .hero-video {
-    max-width: 250px;
-  }
-
-  .section-title {
-    font-size: 38px;
-  }
-
-  .manifesto-card {
-    padding: 30px;
-  }
-
-  .manifesto-card h3 {
-    font-size: 20px;
-  }
-
-  .team-image {
-    height: 340px;
-  }
-
-  .presentation-iframe {
-    height: 450px;
-  }
 
   .presentation-container {
     padding: 20px;
+  }
+
+  .campaign-bus {
+    padding: 80px 0;
+  }
+
+  .campaign-bus-container {
+    margin-top: 35px;
+  }
+
+  .campaign-bus-image {
+    max-width: 700px;
+  }
+
+  .plans-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  .plan-card {
+    padding: 28px;
+  }
+
+  .plan-photo {
+    width: 65px;
+    height: 65px;
+  }
+
+  .plans-quote {
+    padding: 35px;
+  }
+
+  .plans-quote p {
+    font-size: 19px;
   }
 }
 
@@ -970,7 +1198,6 @@ html {
     font-size: 58px;
   }
 
-  /* Manifesto cards in single column on mobile */
   .manifesto-grid {
     grid-template-columns: 1fr;
     gap: 20px;
@@ -980,7 +1207,6 @@ html {
     padding: 28px;
   }
 
-  /* Team cards in single column on mobile */
   .team-grid {
     grid-template-columns: 1fr;
     gap: 25px;
@@ -995,7 +1221,78 @@ html {
   }
 
   .presentation-container {
-    padding: 18px;
+    padding: 15px;
+  }
+
+  .presentation-note {
+    font-size: 14px;
+    padding: 15px;
+  }
+
+  .campaign-bus {
+    padding: 70px 0;
+  }
+
+  .campaign-bus-container {
+    margin-top: 35px;
+  }
+
+  .campaign-bus-image {
+    max-width: 100%;
+    border-radius: 20px;
+  }
+
+  .plans-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .plan-card {
+    padding: 25px;
+  }
+
+  .plan-profile {
+    gap: 12px;
+  }
+
+  .plan-photo {
+    width: 55px;
+    height: 55px;
+    border-width: 2px;
+  }
+
+  .plan-header {
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+  }
+
+  .plan-header h3 {
+    font-size: 18px;
+  }
+
+  .plan-role {
+    font-size: 13px;
+  }
+
+  .plan-list li {
+    font-size: 14px;
+    padding-left: 22px;
+    margin-bottom: 10px;
+  }
+
+  .plan-sublist li {
+    font-size: 13px;
+    padding-left: 18px;
+    margin-bottom: 6px;
+  }
+
+  .plans-quote {
+    padding: 28px;
+    margin-top: 50px;
+  }
+
+  .plans-quote p {
+    font-size: 17px;
   }
 }
 
@@ -1120,5 +1417,17 @@ html {
   .presentation-note {
     font-size: 14px;
     padding: 15px;
+  }
+
+  .campaign-bus {
+    padding: 60px 0;
+  }
+
+  .campaign-bus-container {
+    margin-top: 35px;
+  }
+
+  .campaign-bus-image {
+    border-radius: 15px;
   }
 }
