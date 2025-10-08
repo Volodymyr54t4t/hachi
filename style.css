@@ -710,11 +710,11 @@ html {
   }
 
   .hero-photo {
-    width: 420px;
+    width: 400px;
   }
 
   .hero-video {
-    width: 280px;
+    width: 270px;
   }
 
   .section-title {
@@ -723,7 +723,7 @@ html {
 
   .manifesto-grid {
     grid-template-columns: repeat(4, 1fr);
-    gap: 35px;
+    gap: 30px;
   }
 
   .team-grid {
@@ -731,31 +731,22 @@ html {
     gap: 40px;
   }
 
-  .presentation-hero {
-    min-height: 50vh;
-    padding-top: 100px;
-  }
-
   .presentation-iframe {
-    height: 500px;
-  }
-
-  .presentation-container {
-    padding: 20px;
+    height: 600px;
   }
 }
 
 @media (max-width: 1200px) {
   .hero-photo {
-    width: 350px;
+    width: 360px;
   }
 
   .hero-video {
-    width: 240px;
+    width: 250px;
   }
 
   .hero-title {
-    font-size: 52px;
+    font-size: 54px;
   }
 
   .manifesto-grid {
@@ -768,21 +759,13 @@ html {
     gap: 30px;
   }
 
-  .presentation-hero {
-    min-height: 40vh;
-    padding-top: 100px;
-  }
-
   .presentation-iframe {
-    height: 500px;
-  }
-
-  .presentation-container {
-    padding: 20px;
+    height: 550px;
   }
 }
 
 @media (max-width: 968px) {
+  /* Mobile menu toggle appears and navigation becomes vertical */
   .mobile-menu-toggle {
     display: flex;
   }
@@ -803,6 +786,7 @@ html {
     opacity: 0;
     visibility: hidden;
     transition: all 0.3s ease;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
   }
 
   .nav-menu.active {
@@ -813,17 +797,23 @@ html {
 
   .nav-menu li {
     padding: 15px 20px;
-    border-bottom: 1px solid var(--glass-border);
+    border-bottom: 1px solid rgba(255, 77, 109, 0.1);
   }
 
   .nav-menu li:last-child {
     border-bottom: none;
   }
 
+  .nav-menu a {
+    display: block;
+    width: 100%;
+  }
+
+  /* Hero section stacks vertically on tablet */
   .hero-content {
     flex-direction: column;
     text-align: center;
-    gap: 40px;
+    gap: 35px;
   }
 
   .hero-text {
@@ -831,7 +821,12 @@ html {
   }
 
   .hero-title {
-    font-size: 48px;
+    font-size: 46px;
+  }
+
+  .hero-description {
+    font-size: 17px;
+    max-width: 100%;
   }
 
   .hero-buttons {
@@ -840,66 +835,64 @@ html {
 
   .hero-photo {
     width: 100%;
-    max-width: 400px;
+    max-width: 380px;
   }
 
   .hero-video {
     width: 100%;
-    max-width: 300px;
+    max-width: 280px;
   }
 
   .section-title {
-    font-size: 42px;
+    font-size: 44px;
   }
 
   .stat-number {
-    font-size: 52px;
+    font-size: 54px;
   }
 
   .stat-number.infinity {
-    font-size: 60px;
+    font-size: 62px;
   }
 
+  /* Manifesto cards in 2 columns on tablet */
   .manifesto-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 20px;
   }
 
+  /* Team cards in 2 columns on tablet */
   .team-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 25px;
   }
 
   .team-image {
-    height: 350px;
+    height: 360px;
   }
 
   .footer-content {
     flex-direction: column;
     text-align: center;
+    gap: 20px;
   }
 
   .footer-info {
     text-align: center;
   }
 
-  .presentation-hero {
-    min-height: 40vh;
-    padding-top: 100px;
-  }
-
   .presentation-iframe {
     height: 500px;
-  }
-
-  .presentation-container {
-    padding: 20px;
   }
 }
 
 @media (max-width: 768px) {
   .hero-title {
-    font-size: 38px;
+    font-size: 40px;
+  }
+
+  .hero-description {
+    font-size: 16px;
   }
 
   .hero-photo {
@@ -907,53 +900,41 @@ html {
   }
 
   .hero-video {
-    max-width: 260px;
+    max-width: 250px;
   }
 
-  .manifesto-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
+  .section-title {
+    font-size: 38px;
   }
 
   .manifesto-card {
     padding: 30px;
   }
 
-  .team-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
+  .manifesto-card h3 {
+    font-size: 20px;
   }
 
   .team-image {
-    height: 320px;
-  }
-
-  .presentation-hero {
-    padding-top: 90px;
-    padding-bottom: 40px;
+    height: 340px;
   }
 
   .presentation-iframe {
-    height: 400px;
+    height: 450px;
   }
 
   .presentation-container {
-    padding: 15px;
-  }
-
-  .presentation-note {
-    font-size: 14px;
-    padding: 15px;
+    padding: 20px;
   }
 }
 
 @media (max-width: 640px) {
   .nav-brand {
-    font-size: 24px;
+    font-size: 26px;
   }
 
   .hero-title {
-    font-size: 34px;
+    font-size: 36px;
   }
 
   .hero-description {
@@ -961,7 +942,7 @@ html {
   }
 
   .btn {
-    padding: 14px 30px;
+    padding: 14px 32px;
     font-size: 15px;
   }
 
@@ -974,42 +955,39 @@ html {
   }
 
   .section-title {
-    font-size: 32px;
+    font-size: 34px;
   }
 
   .section-subtitle {
-    font-size: 16px;
+    font-size: 17px;
   }
 
   .stat-number {
-    font-size: 48px;
+    font-size: 50px;
   }
 
   .stat-number.infinity {
-    font-size: 56px;
+    font-size: 58px;
   }
 
+  /* Manifesto cards in single column on mobile */
   .manifesto-grid {
     grid-template-columns: 1fr;
     gap: 20px;
   }
 
   .manifesto-card {
-    padding: 25px;
+    padding: 28px;
   }
 
+  /* Team cards in single column on mobile */
   .team-grid {
     grid-template-columns: 1fr;
     gap: 25px;
   }
 
   .team-image {
-    height: 350px;
-  }
-
-  .presentation-hero {
-    padding-top: 90px;
-    padding-bottom: 40px;
+    height: 360px;
   }
 
   .presentation-iframe {
@@ -1017,12 +995,7 @@ html {
   }
 
   .presentation-container {
-    padding: 15px;
-  }
-
-  .presentation-note {
-    font-size: 14px;
-    padding: 15px;
+    padding: 18px;
   }
 }
 
@@ -1031,12 +1004,20 @@ html {
     padding: 0 16px;
   }
 
+  .navbar {
+    padding: 16px 0;
+  }
+
+  .nav-brand {
+    font-size: 24px;
+  }
+
   .hero {
     padding-top: 90px;
   }
 
   .hero-title {
-    font-size: 30px;
+    font-size: 32px;
   }
 
   .hero-description {
@@ -1046,10 +1027,12 @@ html {
   .hero-buttons {
     flex-direction: column;
     width: 100%;
+    gap: 15px;
   }
 
   .btn {
     width: 100%;
+    padding: 14px 24px;
   }
 
   .hero-photo {
@@ -1061,12 +1044,28 @@ html {
   }
 
   .section-title {
-    font-size: 28px;
+    font-size: 30px;
+  }
+
+  .section-subtitle {
+    font-size: 16px;
+  }
+
+  .stats {
+    padding: 60px 0;
   }
 
   .stats-grid {
     grid-template-columns: 1fr;
     gap: 20px;
+  }
+
+  .stat-number {
+    font-size: 48px;
+  }
+
+  .stat-number.infinity {
+    font-size: 56px;
   }
 
   .manifesto {
@@ -1077,23 +1076,49 @@ html {
     padding: 25px;
   }
 
+  .manifesto-icon {
+    font-size: 42px;
+  }
+
+  .manifesto-card h3 {
+    font-size: 20px;
+  }
+
   .team {
     padding: 80px 0;
   }
 
   .team-image {
-    height: 320px;
+    height: 340px;
   }
 
   .team-info {
     padding: 25px;
   }
 
+  .team-info h3 {
+    font-size: 19px;
+  }
+
+  .footer {
+    padding: 50px 0 25px;
+  }
+
+  .presentation-hero {
+    padding-top: 90px;
+    padding-bottom: 40px;
+  }
+
   .presentation-iframe {
-    height: 300px;
+    height: 320px;
   }
 
   .presentation-container {
-    padding: 12px;
+    padding: 15px;
+  }
+
+  .presentation-note {
+    font-size: 14px;
+    padding: 15px;
   }
 }

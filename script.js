@@ -1,13 +1,12 @@
+// Particle Canvas Animation
 const canvas = document.getElementById("particles-canvas")
 const ctx = canvas.getContext("2d")
 
 canvas.width = window.innerWidth
 canvas.height = window.innerHeight
 
-window.addEventListener("resize", () => {
-    canvas.width = window.innerWidth
-    canvas.height = window.innerHeight
-})
+const particles = []
+const particleCount = 100
 
 class Particle {
     constructor() {
@@ -16,26 +15,15 @@ class Particle {
         this.size = Math.random() * 3 + 1
         this.speedX = Math.random() * 0.5 - 0.25
         this.speedY = Math.random() * 0.5 - 0.25
-
-        const colors = [
-            "rgba(255, 77, 109, 0.6)",
-            "rgba(255, 107, 157, 0.5)",
-            "rgba(0, 217, 255, 0.4)",
-            "rgba(255, 77, 109, 0.3)",
-        ]
-        this.color = colors[Math.floor(Math.random() * colors.length)]
+        this.color = Math.random() > 0.5 ? "rgba(255, 77, 109, 0.5)" : "rgba(0, 217, 255, 0.5)"
     }
 
     update() {
         this.x += this.speedX
         this.y += this.speedY
 
-        if (this.x > canvas.width || this.x < 0) {
-            this.speedX = -this.speedX
-        }
-        if (this.y > canvas.height || this.y < 0) {
-            this.speedY = -this.speedY
-        }
+        if (this.x > canvas.width || this.x < 0) this.speedX *= -1
+        if (this.y > canvas.height || this.y < 0) this.speedY *= -1
     }
 
     draw() {
@@ -46,65 +34,96 @@ class Particle {
     }
 }
 
-const particlesArray = []
-const numberOfParticles = 80
-
-for (let i = 0; i < numberOfParticles; i++) {
-    particlesArray.push(new Particle())
-}
-
-function connectParticles() {
-    for (let a = 0; a < particlesArray.length; a++) {
-        for (let b = a; b < particlesArray.length; b++) {
-            const dx = particlesArray[a].x - particlesArray[b].x
-            const dy = particlesArray[a].y - particlesArray[b].y
-            const distance = Math.sqrt(dx * dx + dy * dy)
-
-            if (distance < 120) {
-                const opacity = 1 - distance / 120
-                ctx.strokeStyle = `rgba(255, 77, 109, ${opacity * 0.2})`
-                ctx.lineWidth = 1
-                ctx.beginPath()
-                ctx.moveTo(particlesArray[a].x, particlesArray[a].y)
-                ctx.lineTo(particlesArray[b].x, particlesArray[b].y)
-                ctx.stroke()
-            }
-        }
+function init() {
+    for (let i = 0; i < particleCount; i++) {
+        particles.push(new Particle())
     }
 }
 
 function animate() {
     ctx.clearRect(0, 0, canvas.width, canvas.height)
 
-    for (let i = 0; i < particlesArray.length; i++) {
-        particlesArray[i].update()
-        particlesArray[i].draw()
+    for (let i = 0; i < particles.length; i++) {
+        particles[i].update()
+        particles[i].draw()
+
+        for (let j = i + 1; j < particles.length; j++) {
+            const dx = particles[i].x - particles[j].x
+            const dy = particles[i].y - particles[j].y
+            const distance = Math.sqrt(dx * dx + dy * dy)
+
+            if (distance < 100) {
+                ctx.strokeStyle = `rgba(255, 77, 109, ${0.2 - distance / 500})`
+                ctx.lineWidth = 1
+                ctx.beginPath()
+                ctx.moveTo(particles[i].x, particles[i].y)
+                ctx.lineTo(particles[j].x, particles[j].y)
+                ctx.stroke()
+            }
+        }
     }
 
-    connectParticles()
     requestAnimationFrame(animate)
 }
 
-animate()
-
-document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-    anchor.addEventListener("click", function (e) {
-        e.preventDefault()
-        const target = document.querySelector(this.getAttribute("href"))
-        if (target) {
-            target.scrollIntoView({
-                behavior: "smooth",
-                block: "start",
-            })
-        }
-    })
+window.addEventListener("resize", () => {
+    canvas.width = window.innerWidth
+    canvas.height = window.innerHeight
 })
 
-function animateCounter(element) {
-    if (element.classList.contains("infinity")) {
-        return
+init()
+animate()
+
+// Navbar scroll effect
+let lastScroll = 0
+const navbar = document.querySelector(".navbar")
+
+window.addEventListener("scroll", () => {
+    const currentScroll = window.pageYOffset
+
+    if (currentScroll > 100) {
+        navbar.style.padding = "15px 0"
+        navbar.style.background = "rgba(10, 14, 39, 0.95)"
+    } else {
+        navbar.style.padding = "20px 0"
+        navbar.style.background = "rgba(10, 14, 39, 0.85)"
     }
 
+    lastScroll = currentScroll
+})
+
+// Mobile menu toggle functionality
+const mobileMenuToggle = document.getElementById("mobileMenuToggle")
+const navMenu = document.getElementById("navMenu")
+
+if (mobileMenuToggle && navMenu) {
+    mobileMenuToggle.addEventListener("click", () => {
+        mobileMenuToggle.classList.toggle("active")
+        navMenu.classList.toggle("active")
+    })
+
+    // Close mobile menu when clicking on a link
+    const navLinks = document.querySelectorAll(".nav-menu a")
+    navLinks.forEach((link) => {
+        link.addEventListener("click", () => {
+            mobileMenuToggle.classList.remove("active")
+            navMenu.classList.remove("active")
+        })
+    })
+
+    // Close mobile menu when clicking outside
+    document.addEventListener("click", (e) => {
+        if (!navMenu.contains(e.target) && !mobileMenuToggle.contains(e.target)) {
+            mobileMenuToggle.classList.remove("active")
+            navMenu.classList.remove("active")
+        }
+    })
+}
+
+// Counter animation for stats
+const statNumbers = document.querySelectorAll(".stat-number[data-target]")
+
+const animateCounter = (element) => {
     const target = Number.parseInt(element.getAttribute("data-target"))
     const duration = 2000
     const increment = target / (duration / 16)
@@ -123,134 +142,59 @@ function animateCounter(element) {
     updateCounter()
 }
 
+// Intersection Observer for counter animation
 const observerOptions = {
-    threshold: 0.3,
-    rootMargin: "0px 0px -100px 0px",
+    threshold: 0.5,
+    rootMargin: "0px",
 }
 
 const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
         if (entry.isIntersecting) {
-            if (entry.target.classList.contains("stat-number")) {
-                animateCounter(entry.target)
-                observer.unobserve(entry.target)
-            }
+            animateCounter(entry.target)
+            observer.unobserve(entry.target)
         }
     })
 }, observerOptions)
 
-document.querySelectorAll(".stat-number").forEach((stat) => {
+statNumbers.forEach((stat) => {
     observer.observe(stat)
 })
 
-let lastScroll = 0
-const navbar = document.querySelector(".navbar")
-
-window.addEventListener("scroll", () => {
-    const currentScroll = window.pageYOffset
-
-    if (currentScroll > 100) {
-        navbar.style.padding = "15px 0"
-        navbar.style.background = "rgba(10, 14, 39, 0.95)"
-    } else {
-        navbar.style.padding = "20px 0"
-        navbar.style.background = "rgba(10, 14, 39, 0.85)"
-    }
-
-    lastScroll = currentScroll
+// Smooth scroll for anchor links
+document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+    anchor.addEventListener("click", function (e) {
+        e.preventDefault()
+        const target = document.querySelector(this.getAttribute("href"))
+        if (target) {
+            target.scrollIntoView({
+                behavior: "smooth",
+                block: "start",
+            })
+        }
+    })
 })
 
-const photoInput = document.getElementById("photo")
-const photoUploadArea = document.getElementById("photoUploadArea")
-const uploadPlaceholder = document.getElementById("uploadPlaceholder")
-const photoPreview = document.getElementById("photoPreview")
-const previewImage = document.getElementById("previewImage")
-const removePhotoBtn = document.getElementById("removePhoto")
+// Add fade-in animation on scroll
+const fadeElements = document.querySelectorAll(".manifesto-card, .team-card, .stat-item")
 
-if (photoUploadArea) {
-    photoUploadArea.addEventListener("click", (e) => {
-        if (e.target !== removePhotoBtn && !e.target.closest(".remove-photo")) {
-            photoInput.click()
-        }
-    })
+const fadeObserver = new IntersectionObserver(
+    (entries) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = "1"
+                entry.target.style.transform = "translateY(0)"
+            }
+        })
+    }, {
+        threshold: 0.1,
+        rootMargin: "0px 0px -50px 0px",
+    },
+)
 
-    photoInput.addEventListener("change", (e) => {
-        handleFile(e.target.files[0])
-    })
-
-    photoUploadArea.addEventListener("dragover", (e) => {
-        e.preventDefault()
-        photoUploadArea.classList.add("dragover")
-    })
-
-    photoUploadArea.addEventListener("dragleave", () => {
-        photoUploadArea.classList.remove("dragover")
-    })
-
-    photoUploadArea.addEventListener("drop", (e) => {
-        e.preventDefault()
-        photoUploadArea.classList.remove("dragover")
-
-        const file = e.dataTransfer.files[0]
-        if (file && file.type.startsWith("image/")) {
-            handleFile(file)
-        }
-    })
-
-    function handleFile(file) {
-        if (!file || !file.type.startsWith("image/")) {
-            alert("Будь ласка, виберіть файл зображення")
-            return
-        }
-
-        if (file.size > 5 * 1024 * 1024) {
-            alert("Файл занадто великий. Максимальний розмір: 5MB")
-            return
-        }
-
-        const reader = new FileReader()
-        reader.onload = (e) => {
-            previewImage.src = e.target.result
-            uploadPlaceholder.style.display = "none"
-            photoPreview.style.display = "block"
-        }
-        reader.readAsDataURL(file)
-    }
-
-    removePhotoBtn.addEventListener("click", (e) => {
-        e.stopPropagation()
-        photoInput.value = ""
-        previewImage.src = ""
-        uploadPlaceholder.style.display = "flex"
-        photoPreview.style.display = "none"
-    })
-}
-
-const joinForm = document.getElementById("joinForm")
-if (joinForm) {
-    joinForm.addEventListener("submit", (e) => {
-        e.preventDefault()
-
-        const btnText = document.querySelector(".btn-text")
-        const btnLoader = document.querySelector(".btn-loader")
-        const submitBtn = document.querySelector(".btn-submit")
-
-        btnText.style.display = "none"
-        btnLoader.style.display = "inline"
-        submitBtn.disabled = true
-
-        setTimeout(() => {
-            alert("Дякуємо за заявку! Ми зв'яжемося з тобою найближчим часом 🚀")
-
-            joinForm.reset()
-            photoInput.value = ""
-            previewImage.src = ""
-            uploadPlaceholder.style.display = "flex"
-            photoPreview.style.display = "none"
-
-            btnText.style.display = "inline"
-            btnLoader.style.display = "none"
-            submitBtn.disabled = false
-        }, 2000)
-    })
-}
+fadeElements.forEach((element) => {
+    element.style.opacity = "0"
+    element.style.transform = "translateY(30px)"
+    element.style.transition = "opacity 0.6s ease, transform 0.6s ease"
+    fadeObserver.observe(element)
+})
