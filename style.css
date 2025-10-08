@@ -641,6 +641,60 @@ html {
   color: var(--light);
 }
 
+/* Presentation Page Styles */
+.presentation-hero {
+  min-height: 50vh;
+  display: flex;
+  align-items: center;
+  padding-top: 120px;
+  padding-bottom: 60px;
+}
+
+.presentation-header {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.presentation-header .btn {
+  margin-top: 30px;
+}
+
+.presentation-section {
+  padding: 60px 0 120px;
+}
+
+.presentation-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 2px solid var(--glass-border);
+  border-radius: 30px;
+  padding: 30px;
+  box-shadow: 0 20px 60px rgba(255, 77, 109, 0.3);
+}
+
+.presentation-iframe {
+  width: 100%;
+  height: 600px;
+  border-radius: 20px;
+  background: var(--darker);
+  display: block;
+}
+
+.presentation-note {
+  margin-top: 25px;
+  padding: 20px;
+  background: rgba(255, 77, 109, 0.1);
+  border-left: 4px solid var(--primary);
+  border-radius: 10px;
+  color: var(--gray);
+  font-size: 15px;
+  line-height: 1.6;
+}
+
 /* Responsive Design */
 @media (min-width: 1400px) {
   .container {
@@ -676,6 +730,19 @@ html {
     grid-template-columns: repeat(3, 1fr);
     gap: 40px;
   }
+
+  .presentation-hero {
+    min-height: 50vh;
+    padding-top: 100px;
+  }
+
+  .presentation-iframe {
+    height: 500px;
+  }
+
+  .presentation-container {
+    padding: 20px;
+  }
 }
 
 @media (max-width: 1200px) {
@@ -699,6 +766,19 @@ html {
   .team-grid {
     grid-template-columns: repeat(3, 1fr);
     gap: 30px;
+  }
+
+  .presentation-hero {
+    min-height: 40vh;
+    padding-top: 100px;
+  }
+
+  .presentation-iframe {
+    height: 500px;
+  }
+
+  .presentation-container {
+    padding: 20px;
   }
 }
 
@@ -802,6 +882,19 @@ html {
   .footer-info {
     text-align: center;
   }
+
+  .presentation-hero {
+    min-height: 40vh;
+    padding-top: 100px;
+  }
+
+  .presentation-iframe {
+    height: 500px;
+  }
+
+  .presentation-container {
+    padding: 20px;
+  }
 }
 
 @media (max-width: 768px) {
@@ -833,6 +926,24 @@ html {
 
   .team-image {
     height: 320px;
+  }
+
+  .presentation-hero {
+    padding-top: 90px;
+    padding-bottom: 40px;
+  }
+
+  .presentation-iframe {
+    height: 400px;
+  }
+
+  .presentation-container {
+    padding: 15px;
+  }
+
+  .presentation-note {
+    font-size: 14px;
+    padding: 15px;
   }
 }
 
@@ -894,6 +1005,24 @@ html {
 
   .team-image {
     height: 350px;
+  }
+
+  .presentation-hero {
+    padding-top: 90px;
+    padding-bottom: 40px;
+  }
+
+  .presentation-iframe {
+    height: 400px;
+  }
+
+  .presentation-container {
+    padding: 15px;
+  }
+
+  .presentation-note {
+    font-size: 14px;
+    padding: 15px;
   }
 }
 
@@ -958,5 +1087,13 @@ html {
 
   .team-info {
     padding: 25px;
+  }
+
+  .presentation-iframe {
+    height: 300px;
+  }
+
+  .presentation-container {
+    padding: 12px;
   }
 }
