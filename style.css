@@ -17,7 +17,8 @@
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, sans-serif;
   background: var(--dark);
   color: var(--light);
   overflow-x: hidden;
@@ -33,7 +34,6 @@ body {
   padding: 0 20px;
 }
 
-/* Particle Canvas Background */
 #particles-canvas {
   position: fixed;
   top: 0;
@@ -44,7 +44,6 @@ body {
   background: linear-gradient(180deg, #0a0e27 0%, #050814 50%, #0a0e27 100%);
 }
 
-/* Navigation */
 .navbar {
   position: fixed;
   top: 0;
@@ -67,14 +66,19 @@ body {
 
 .navbar .container {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
 }
 
 .nav-brand {
   font-size: 32px;
   font-weight: 900;
-  background: linear-gradient(135deg, var(--primary), var(--secondary), var(--accent));
+  background: linear-gradient(
+    135deg,
+    var(--primary),
+    var(--secondary),
+    var(--accent)
+  );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -83,74 +87,6 @@ body {
   cursor: pointer;
 }
 
-.nav-menu {
-  display: flex;
-  list-style: none;
-  gap: 40px;
-}
-
-.nav-menu a {
-  color: var(--light);
-  text-decoration: none;
-  font-weight: 600;
-  font-size: 16px;
-  transition: all 0.3s ease;
-  position: relative;
-  padding: 8px 0;
-}
-
-.nav-menu a::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 0;
-  height: 2px;
-  background: linear-gradient(90deg, var(--primary), var(--accent));
-  transition: width 0.3s ease;
-}
-
-.nav-menu a:hover {
-  color: var(--primary);
-}
-
-.nav-menu a:hover::after {
-  width: 100%;
-}
-
-/* Mobile Menu Toggle */
-.mobile-menu-toggle {
-  display: none;
-  flex-direction: column;
-  gap: 5px;
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 5px;
-  z-index: 1001;
-}
-
-.mobile-menu-toggle span {
-  width: 25px;
-  height: 3px;
-  background: var(--light);
-  border-radius: 3px;
-  transition: all 0.3s ease;
-}
-
-.mobile-menu-toggle.active span:nth-child(1) {
-  transform: rotate(45deg) translate(8px, 8px);
-}
-
-.mobile-menu-toggle.active span:nth-child(2) {
-  opacity: 0;
-}
-
-.mobile-menu-toggle.active span:nth-child(3) {
-  transform: rotate(-45deg) translate(7px, -7px);
-}
-
-/* Hero Section */
 .hero {
   min-height: 100vh;
   display: flex;
@@ -186,7 +122,12 @@ body {
 }
 
 .highlight {
-  background: linear-gradient(135deg, var(--primary), var(--secondary), var(--accent));
+  background: linear-gradient(
+    135deg,
+    var(--primary),
+    var(--secondary),
+    var(--accent)
+  );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -259,6 +200,18 @@ body {
   box-shadow: 0 10px 30px rgba(255, 77, 109, 0.4);
 }
 
+/* Added tertiary button style for NMT Notes */
+.btn-tertiary {
+  background: linear-gradient(135deg, var(--accent), #0099cc);
+  color: var(--light);
+  box-shadow: 0 10px 30px rgba(0, 217, 255, 0.4);
+}
+
+.btn-tertiary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 40px rgba(0, 217, 255, 0.6);
+}
+
 .hero-photo {
   flex: 0 0 auto;
   width: 380px;
@@ -310,7 +263,6 @@ body {
   }
 }
 
-/* Stats Section */
 .stats {
   padding: 80px 0;
   background: var(--glass-bg);
@@ -344,7 +296,12 @@ body {
 .stat-number {
   font-size: 64px;
   font-weight: 900;
-  background: linear-gradient(135deg, var(--primary), var(--secondary), var(--accent));
+  background: linear-gradient(
+    135deg,
+    var(--primary),
+    var(--secondary),
+    var(--accent)
+  );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -358,7 +315,6 @@ body {
   font-weight: 600;
 }
 
-/* Section Styles */
 .section-title {
   font-size: 56px;
   font-weight: 900;
@@ -375,7 +331,6 @@ body {
   margin-bottom: 60px;
 }
 
-/* Campaign Bus Section */
 .campaign-bus {
   padding: 100px 0;
   background: var(--dark);
@@ -402,7 +357,6 @@ body {
   box-shadow: 0 35px 90px rgba(255, 77, 109, 0.6);
 }
 
-/* Manifesto Section */
 .manifesto {
   padding: 120px 0;
 }
@@ -435,7 +389,11 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(135deg, rgba(255, 77, 109, 0.15), rgba(0, 217, 255, 0.1));
+  background: linear-gradient(
+    135deg,
+    rgba(255, 77, 109, 0.15),
+    rgba(0, 217, 255, 0.1)
+  );
   opacity: 0;
   transition: opacity 0.4s ease;
   z-index: 0;
@@ -481,10 +439,13 @@ body {
   transform: scale(1.2) rotate(5deg);
 }
 
-/* NMT Notes Section */
 .nmt-notes {
   padding: 80px 0;
-  background: linear-gradient(135deg, rgba(255, 77, 109, 0.05) 0%, rgba(0, 217, 255, 0.05) 100%);
+  background: linear-gradient(
+    135deg,
+    rgba(255, 77, 109, 0.05) 0%,
+    rgba(0, 217, 255, 0.05) 100%
+  );
   position: relative;
   overflow: hidden;
 }
@@ -496,21 +457,13 @@ body {
   right: -10%;
   width: 500px;
   height: 500px;
-  background: radial-gradient(circle, rgba(255, 77, 109, 0.1) 0%, transparent 70%);
+  background: radial-gradient(
+    circle,
+    rgba(255, 77, 109, 0.1) 0%,
+    transparent 70%
+  );
   border-radius: 50%;
   animation: pulse 4s ease-in-out infinite;
-}
-
-@keyframes pulse {
-  0%,
-  100% {
-    transform: scale(1);
-    opacity: 0.5;
-  }
-  50% {
-    transform: scale(1.1);
-    opacity: 0.8;
-  }
 }
 
 .nmt-notes-card {
@@ -533,7 +486,12 @@ body {
   left: -100%;
   width: 100%;
   height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255, 77, 109, 0.1), transparent);
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 77, 109, 0.1),
+    transparent
+  );
   transition: left 0.6s;
 }
 
@@ -644,7 +602,169 @@ body {
   font-style: italic;
 }
 
-/* Plans Section */
+.contact-section {
+  padding: 80px 0;
+  background: linear-gradient(
+    135deg,
+    rgba(0, 217, 255, 0.05) 0%,
+    rgba(255, 77, 109, 0.05) 100%
+  );
+  position: relative;
+  overflow: hidden;
+}
+
+.contact-section::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -10%;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(
+    circle,
+    rgba(0, 217, 255, 0.1) 0%,
+    transparent 70%
+  );
+  border-radius: 50%;
+  animation: pulse 4s ease-in-out infinite;
+}
+
+.contact-card {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(10px);
+  border: 2px solid rgba(0, 217, 255, 0.2);
+  border-radius: 24px;
+  padding: 60px 40px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 8px 32px rgba(0, 217, 255, 0.1);
+}
+
+.contact-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(0, 217, 255, 0.1),
+    transparent
+  );
+  transition: left 0.6s;
+}
+
+.contact-card:hover::before {
+  left: 100%;
+}
+
+.contact-card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(0, 217, 255, 0.4);
+  box-shadow: 0 16px 48px rgba(0, 217, 255, 0.2);
+}
+
+.contact-icon {
+  font-size: 80px;
+  margin-bottom: 20px;
+  display: inline-block;
+  animation: float 3s ease-in-out infinite;
+  filter: drop-shadow(0 4px 12px rgba(0, 217, 255, 0.3));
+}
+
+.contact-title {
+  font-size: 48px;
+  font-weight: 800;
+  margin-bottom: 16px;
+  color: #fff;
+  text-shadow: 0 2px 20px rgba(0, 217, 255, 0.3);
+}
+
+.contact-description {
+  font-size: 20px;
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 32px;
+  line-height: 1.6;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.btn-contact {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 18px 40px;
+  background: linear-gradient(135deg, #00d9ff 0%, #00a8cc 100%);
+  color: #fff;
+  text-decoration: none;
+  border-radius: 50px;
+  font-size: 18px;
+  font-weight: 700;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 20px rgba(0, 217, 255, 0.4);
+  position: relative;
+  overflow: hidden;
+  border: 2px solid transparent;
+}
+
+.btn-contact::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #00a8cc 0%, #00d9ff 100%);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.btn-contact:hover::before {
+  opacity: 1;
+}
+
+.btn-contact:hover {
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 8px 30px rgba(0, 217, 255, 0.6);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.btn-contact:active {
+  transform: translateY(0) scale(1);
+}
+
+.btn-contact-icon,
+.btn-contact-arrow {
+  position: relative;
+  z-index: 1;
+  transition: transform 0.3s;
+}
+
+.btn-contact:hover .btn-contact-icon {
+  transform: rotate(15deg) scale(1.1);
+}
+
+.btn-contact:hover .btn-contact-arrow {
+  transform: translateX(5px);
+}
+
+.btn-contact span {
+  position: relative;
+  z-index: 1;
+}
+
+.contact-hint {
+  margin-top: 24px;
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.6);
+  font-style: italic;
+}
+
 .plans {
   padding: 120px 0;
   background: var(--dark);
@@ -750,7 +870,11 @@ body {
 .plans-quote {
   margin-top: 60px;
   padding: 40px;
-  background: linear-gradient(135deg, rgba(255, 77, 109, 0.15), rgba(0, 217, 255, 0.1));
+  background: linear-gradient(
+    135deg,
+    rgba(255, 77, 109, 0.15),
+    rgba(0, 217, 255, 0.1)
+  );
   border: 2px solid var(--primary);
   border-radius: 30px;
   text-align: center;
@@ -767,7 +891,19 @@ body {
   text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
 }
 
-/* Videos Section */
+/* Added missing styles for videos, team, footer, and responsive design */
+@keyframes pulse {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 0.5;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 0.8;
+  }
+}
+
 .videos-section {
   padding: 100px 0;
   background: var(--dark);
@@ -814,7 +950,7 @@ body {
   display: block;
 }
 
-/* Team Section */
+/* Added complete team, footer, and responsive styles */
 .team {
   padding: 120px 0;
   background: rgba(5, 8, 20, 0.5);
@@ -912,7 +1048,6 @@ body {
   font-size: 14px;
 }
 
-/* Footer */
 .footer {
   background: var(--darker);
   padding: 60px 0 30px;
@@ -930,7 +1065,12 @@ body {
 .footer-brand h3 {
   font-size: 28px;
   font-weight: 900;
-  background: linear-gradient(135deg, var(--primary), var(--secondary), var(--accent));
+  background: linear-gradient(
+    135deg,
+    var(--primary),
+    var(--secondary),
+    var(--accent)
+  );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -953,49 +1093,167 @@ body {
 }
 
 /* Responsive Design */
+@media (max-width: 1200px) {
+  .container {
+    padding: 0 30px;
+  }
+
+  .hero-content {
+    gap: 30px;
+  }
+
+  .hero-photo {
+    width: 320px;
+  }
+
+  .hero-video {
+    width: 220px;
+  }
+}
+
 @media (max-width: 1024px) {
   .manifesto-grid {
     grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
   }
 
   .plans-grid {
     grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
   }
 
   .team-grid {
     grid-template-columns: repeat(2, 1fr);
+    gap: 35px;
+  }
+
+  .hero-title {
+    font-size: 48px;
+  }
+
+  .section-title {
+    font-size: 48px;
   }
 }
 
 @media (max-width: 768px) {
+  .container {
+    padding: 0 20px;
+  }
+
+  .navbar {
+    padding: 15px 0;
+  }
+
+  .nav-brand {
+    font-size: 28px;
+  }
+
+  .hero {
+    padding-top: 80px;
+    min-height: auto;
+    padding-bottom: 60px;
+  }
+
+  .hero-content {
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .hero-text {
+    max-width: 100%;
+    text-align: center;
+  }
+
   .hero-title {
-    font-size: 42px;
+    font-size: 40px;
+  }
+
+  .hero-description {
+    max-width: 100%;
+    font-size: 16px;
+  }
+
+  .hero-buttons {
+    justify-content: center;
+    gap: 15px;
+  }
+
+  .btn {
+    padding: 14px 32px;
+    font-size: 15px;
   }
 
   .hero-photo {
     width: 100%;
     max-width: 400px;
+    margin: 0 auto;
   }
 
   .hero-video {
     width: 100%;
     max-width: 300px;
+    margin: 0 auto;
+  }
+
+  .stats {
+    padding: 60px 0;
+  }
+
+  .stats-grid {
+    gap: 30px;
+  }
+
+  .stat-number {
+    font-size: 52px;
   }
 
   .section-title {
-    font-size: 40px;
+    font-size: 36px;
+  }
+
+  .section-subtitle {
+    font-size: 18px;
+    margin-bottom: 40px;
+  }
+
+  .campaign-bus {
+    padding: 80px 0;
+  }
+
+  .manifesto {
+    padding: 80px 0;
   }
 
   .manifesto-grid {
     grid-template-columns: 1fr;
+    gap: 25px;
+  }
+
+  .manifesto-card {
+    padding: 35px;
+  }
+
+  .plans {
+    padding: 80px 0;
   }
 
   .plans-grid {
     grid-template-columns: 1fr;
+    gap: 25px;
+  }
+
+  .team {
+    padding: 80px 0;
   }
 
   .team-grid {
     grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .team-image {
+    height: 320px;
   }
 
   .nmt-notes {
@@ -1023,9 +1281,39 @@ body {
     font-size: 16px;
   }
 
+  .contact-section {
+    padding: 60px 0;
+  }
+
+  .contact-card {
+    padding: 40px 24px;
+  }
+
+  .contact-icon {
+    font-size: 60px;
+  }
+
+  .contact-title {
+    font-size: 36px;
+  }
+
+  .contact-description {
+    font-size: 18px;
+  }
+
+  .btn-contact {
+    padding: 16px 32px;
+    font-size: 16px;
+  }
+
+  .footer {
+    padding: 40px 0 20px;
+  }
+
   .footer-content {
     flex-direction: column;
     text-align: center;
+    gap: 20px;
   }
 
   .footer-info {
@@ -1034,16 +1322,110 @@ body {
 }
 
 @media (max-width: 480px) {
+  .nav-brand {
+    font-size: 24px;
+    letter-spacing: 2px;
+  }
+
   .hero-title {
     font-size: 32px;
   }
 
   .hero-description {
     font-size: 15px;
+    margin-bottom: 25px;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+    width: 100%;
+    gap: 12px;
+  }
+
+  .btn {
+    width: 100%;
+    padding: 14px 24px;
+  }
+
+  .stat-number {
+    font-size: 42px;
+  }
+
+  .stat-label {
+    font-size: 16px;
   }
 
   .section-title {
-    font-size: 32px;
+    font-size: 28px;
+  }
+
+  .section-subtitle {
+    font-size: 16px;
+  }
+
+  .manifesto-card {
+    padding: 30px 25px;
+  }
+
+  .manifesto-icon {
+    font-size: 40px;
+  }
+
+  .manifesto-card h3 {
+    font-size: 20px;
+  }
+
+  .manifesto-card p {
+    font-size: 15px;
+  }
+
+  .plan-card {
+    padding: 25px 20px;
+  }
+
+  .plan-photo {
+    width: 60px;
+    height: 60px;
+  }
+
+  .plan-header h3 {
+    font-size: 18px;
+  }
+
+  .plan-role {
+    font-size: 14px;
+  }
+
+  .plan-list li {
+    font-size: 14px;
+  }
+
+  .plans-quote {
+    padding: 30px 20px;
+  }
+
+  .plans-quote p {
+    font-size: 18px;
+  }
+
+  .team-image {
+    height: 280px;
+  }
+
+  .team-info {
+    padding: 25px 20px;
+  }
+
+  .team-info h3 {
+    font-size: 18px;
+  }
+
+  .nmt-notes-card {
+    padding: 30px 20px;
+  }
+
+  .nmt-notes-icon {
+    font-size: 50px;
   }
 
   .nmt-notes-title {
@@ -1057,5 +1439,65 @@ body {
   .btn-nmt {
     padding: 14px 28px;
     font-size: 15px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .contact-card {
+    padding: 30px 20px;
+  }
+
+  .contact-icon {
+    font-size: 50px;
+  }
+
+  .contact-title {
+    font-size: 28px;
+  }
+
+  .contact-description {
+    font-size: 16px;
+  }
+
+  .btn-contact {
+    padding: 14px 28px;
+    font-size: 15px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .footer-brand h3 {
+    font-size: 24px;
+  }
+
+  .footer-brand p {
+    font-size: 14px;
+  }
+
+  .footer-info p {
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 360px) {
+  .hero-title {
+    font-size: 28px;
+  }
+
+  .section-title {
+    font-size: 24px;
+  }
+
+  .btn {
+    padding: 12px 20px;
+    font-size: 14px;
+  }
+
+  .nmt-notes-title {
+    font-size: 24px;
+  }
+
+  .contact-title {
+    font-size: 24px;
   }
 }
